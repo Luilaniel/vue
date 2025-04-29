@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <ButtonComponent />
+    <TableComponent />
   </div>
 </template>
 
 <script>
-import ButtonComponent from './components/ButtonComponent.vue'
+import TableComponent from './components/TableComponent.vue'
+
 export default {
   name: 'App',
   components: {
-    ButtonComponent
+    TableComponent
   }
 }
 </script>
