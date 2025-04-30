@@ -1,25 +1,38 @@
 <template>
-  <div>
-    <input v-model="name" placeholder="Введіть ваше ім'я" />
-    <p v-if="name">Вітаю, {{ name }}</p>
-    <p v-else>Вітаю</p>
-    <ul>
-      <li v-for="(item, index) in items" :key="index">{{ item }}</li>
-    </ul>
-    <button @click="greeting">Натисніть мене!</button>
-    <br>
-    <label>
-      <input type="checkbox" v-model="agreed" />
-      Погоджуюся з умовами
-    </label>
+  <b-container class="py-4">
+    <b-form-input v-model="name" placeholder="Введіть ваше ім'я" class="mb-3"/>
+    <b-alert :variant="name ? 'success' : 'secondary'" show class="mb-3">
+      {{ name ? `Вітаю, ${name}` : 'Вітаю' }}
+    </b-alert>
 
-    <ul>
-      <li v-for="(term, index) in terms" :key="'term-' + index">{{ term }}</li>
-    </ul>
-    <button @click="toggleAgreement">Змінити стан згоди</button>
-    <p v-if="agreed">Дякуємо за згоду!</p>
-    <p v-else>Будь ласка, погодьтеся з умовами.</p>
-  </div>
+    <b-list-group class="mb-3">
+      <b-list-group-item v-for="(item, index) in items" :key="index">
+        {{ item }}
+      </b-list-group-item>
+    </b-list-group>
+
+    <b-button @click="greeting" variant="primary" class="mb-3">
+      Натисніть мене!
+    </b-button>
+
+    <b-form-checkbox v-model="agreed" class="mb-3">
+      Погоджуюся з умовами
+    </b-form-checkbox>
+
+    <b-list-group class="mb-3">
+      <b-list-group-item v-for="(term, index) in terms" :key="'term-' + index">
+        {{ term }}
+      </b-list-group-item>
+    </b-list-group>
+
+    <b-button @click="toggleAgreement" variant="warning" class="mb-3">
+      Змінити стан згоди
+    </b-button>
+
+    <b-alert :variant="agreed ? 'success' : 'danger'" show>
+      {{ agreed ? 'Дякуємо за згоду!' : 'Будь ласка, погодьтеся з умовами.' }}
+    </b-alert>
+  </b-container>
 </template>
 
 <script>
@@ -39,7 +52,11 @@ export default {
   },
   methods: {
     greeting() {
-      alert("Вітаю");
+      this.$bvToast.toast('Вітаю!', {
+        title: 'Привітання',
+        variant: 'info',
+        solid: true
+      });
     },
     toggleAgreement() {
       this.agreed = !this.agreed;
@@ -49,16 +66,5 @@ export default {
 </script>
 
 <style scoped>
-div {
-  max-width: 400px;
-  margin: 20px;
-}
 
-p {
-  margin: 8px 0;
-}
-
-button {
-  margin-bottom: 11px;
-}
 </style>
