@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <TableComponent />
+    <SomeDirectives />
   </div>
 </template>
 
 <script>
-import TableComponent from './components/TableComponent.vue'
+import SomeDirectives from "@/components/SomeDirectives.vue";
 
 export default {
   name: 'App',
   components: {
-    TableComponent
+    SomeDirectives
   }
 }
 </script>
