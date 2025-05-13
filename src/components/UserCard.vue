@@ -1,5 +1,5 @@
 <template>
-  <b-card v-if="hasData" :title="`${ name }, ${ age }`">
+  <b-card v-if="hasData" :title="name + ', ' + age">
   <b-card-text v-if="isActive">Aktywny użytkownik</b-card-text>
     <b-card-text v-else>Nieaktywny użytkownik</b-card-text>
   </b-card>
