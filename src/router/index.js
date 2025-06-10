@@ -1,33 +1,16 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 import Home from '../pages/Home.vue'
 import About from '../pages/About.vue'
 import Contact from '../pages/Contact.vue'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/about',
-        name: 'About',
-        component: About
-    },
-    {
-        path: '/contact',
-        name: 'Contact',
-        component: Contact
-    }
-]
-
-const router = new VueRouter({
+export default new Router({
     mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-})
-
-export default router
+    routes: [
+        { path: '/', component: Home },
+        { path: '/about', component: About },
+        { path: '/contact', component: Contact }
+    ]
+});
