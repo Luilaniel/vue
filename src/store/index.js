@@ -21,9 +21,11 @@ export default new Vuex.Store({
     mutations: {
         ADD_CAR(state, car) {
             state.cars.push(car);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cars));
         },
         DELETE_CAR(state, index) {
             state.cars.splice(index, 1);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state.cars));
         },
 
         SET_WEATHER_TODAY(state, weather) {
