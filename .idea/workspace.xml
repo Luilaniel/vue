@@ -42,6 +42,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Drrif\Desktop\vue\my-project\src" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,7 +75,7 @@
       <workItem from="1749567254323" duration="9191000" />
       <workItem from="1749579279996" duration="244000" />
       <workItem from="1749630479271" duration="930000" />
-      <workItem from="1752601132653" duration="2021000" />
+      <workItem from="1752601132653" duration="2348000" />
     </task>
     <servers />
   </component>
