@@ -7,7 +7,7 @@
           <h5>Номер: {{ car.carNumber }}</h5>
           <p>Водій: {{ car.driverName }}</p>
           <p>Вага: {{ car.weight }} кг</p>
-          <b-button variant="danger" @click="deleteCar(index)">Видалити</b-button>
+          <b-button variant="danger" @click="deleteCarById(car.id)">Видалити</b-button>
         </b-card>
       </b-col>
     </b-row>
@@ -20,13 +20,16 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'AboutPage',
   computed: {
-    ...mapGetters(['getCars']),
+    ...mapGetters('cars', ['getCars']),
     cars() {
       return this.getCars;
     }
   },
   methods: {
-    ...mapActions(['deleteCar'])
+    ...mapActions('cars', ['deleteCar']),
+    deleteCarById(id) {
+      this.deleteCar(id);
+    }
   }
 }
 </script>

@@ -31,7 +31,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions(['addCar']),
+    ...mapActions('cars', ['addCar']),
     submitForm() {
       this.addCar({
         carNumber: this.carNumber,
