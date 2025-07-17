@@ -15,7 +15,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'ContactPage',
   computed: {
-    ...mapGetters(['getWeatherForecast']),
+    ...mapGetters('weather', ['getWeatherForecast']),
     weatherRows() {
       console.log('DEBUG weather data:', this.getWeatherForecast);
       if (!this.getWeatherForecast || !this.getWeatherForecast.time) return [];
@@ -39,7 +39,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchWeatherForecast']),
+    ...mapActions('weather', ['fetchWeatherForecast']),
     updateWeather() {
       this.fetchWeatherForecast();
     },

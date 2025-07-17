@@ -27,13 +27,13 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'AboutPage',
   computed: {
-    ...mapGetters(['getCars']),
+    ...mapGetters('cars', ['getCars']),
     cars() {
       return this.getCars;
     }
   },
   methods: {
-    ...mapActions(['deleteCar'])
+    ...mapActions('cars', ['deleteCar'])
   }
 }
 </script>

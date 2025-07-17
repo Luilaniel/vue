@@ -43,13 +43,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['getWeatherToday']),
+    ...mapGetters('weather', ['getWeatherToday']),
+    ...mapGetters('cars', ['getCars']),
     weatherToday() {
       return this.getWeatherToday;
-    },
+    }
   },
   methods: {
-    ...mapActions(['addCar', 'fetchWeatherForecast']),
+    ...mapActions('weather', ['fetchWeatherForecast']),
+    ...mapActions('cars', ['addCar']),
     refreshWeather() {
       this.fetchWeatherForecast();
     },
